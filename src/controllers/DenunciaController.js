@@ -8,9 +8,11 @@ exports.createDenuncia = async (req, res) => {
     const foto = req.file.filename; // Assumindo que o arquivo de imagem é enviado como parte do corpo da solicitação
 
     const novaDenuncia = new Denuncia({
+      titulo,
       descricao,
       foto,
-      localizacao,
+      latitude,
+      longitude,
     });
 
     await novaDenuncia.save();

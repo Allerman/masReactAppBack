@@ -2,6 +2,10 @@
 const mongoose = require('mongoose');
 
 const denunciaSchema = new mongoose.Schema({
+  titulo: {
+    type: String,
+    required: true,
+  },
   descricao: {
     type: String,
     required: true,
@@ -10,13 +14,12 @@ const denunciaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  localizacao: {
+  latitude: {
     type: {
-      type: String,
-      enum: ['Point'],
+      type: [Number],
       required: true,
     },
-    coordinates: {
+  longitude: {
       type: [Number],
       required: true,
     },
@@ -24,8 +27,6 @@ const denunciaSchema = new mongoose.Schema({
 });
 
 // Criar um índice espacial para consultas de localização
-denunciaSchema.index({ localizacao: '2dsphere' });
-
 const Denuncia = mongoose.model('Denuncia', denunciaSchema);
 
 module.exports = Denuncia;
