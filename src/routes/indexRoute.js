@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/novadenuncia', DenunciaController.createDenuncia);
 router.get('/denuncias', DenunciaController.showDenuncias);
-router.get('/atualizardenuncia', DenunciaController.updateDenuncia);
-router.get('/deletardenuncia', DenunciaController.deleteDenuncia);
+router.put('/atualizardenuncia/:id', DenunciaController.updateDenuncia);
+router.delete('/deletardenuncia/:id', DenunciaController.deleteDenuncia);
 
 module.exports = router;

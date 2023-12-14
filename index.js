@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const router = require('./src/routes/indexRoute');
 require('dotenv').config();
 
+router.get('/status', (req, res) => {
+    res.status(200).json({ status: 'API está online' });
+  });
+  
 const app = express(); 
 
 const PORT = process.env.PORT || 3000;

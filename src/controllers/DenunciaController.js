@@ -44,6 +44,9 @@ exports.showDenuncias = async (req, res) => {
 // Função para atualizar uma denúncia existente
 exports.updateDenuncia = async (req, res) => {
   try {
+    console.log('Params:', req.params);
+    console.log('Body:', req.body);
+
     const { id } = req.params;
     const { titulo, descricao, latitude, longitude } = req.body;
 
