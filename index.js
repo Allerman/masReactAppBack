@@ -1,17 +1,16 @@
-// app.js
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require('./src/routes/indexRoute');
 require('dotenv').config();
 
+const app = express(); 
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  });
+});
   
 const db = mongoose.connection;
 
@@ -27,5 +26,5 @@ app.use(express.json());
 app.use('/', router);
 
 app.listen(PORT, () => {
-  console.log(`Servidor iniciado na porta ${PORT}`);
+    console.log(`Servidor iniciado na porta ${PORT}`);
 });

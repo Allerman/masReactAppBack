@@ -1,15 +1,12 @@
 // routes/index.js
 const express = require('express');
-const multer = require('multer');
 const DenunciaController = require('../controllers/DenunciaController');
 
 const router = express.Router();
-const upload = multer({ dest: 'uploads/' }); // Pasta onde as imagens serão salvas temporariamente
 
-// Rota para criar uma nova denúncia
-router.post('/newdenuncia', upload.single('foto'), DenunciaController.createDenuncia);
-
-// Rota para obter todas as denúncias
+router.post('/novadenuncia', DenunciaController.createDenuncia);
 router.get('/denuncias', DenunciaController.showDenuncias);
+router.get('/atualizardenuncia', DenunciaController.updateDenuncia);
+router.get('/deletardenuncia', DenunciaController.deleteDenuncia);
 
 module.exports = router;
